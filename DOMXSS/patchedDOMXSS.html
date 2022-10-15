@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        function runFunction(){
+            var userName = document.getElementById('input').value;
+            var pos = document.URL.indexOf("userName=")+8;
+            document.getElementById("myDIV").innerHTML = decodeURIComponent(document.URL.substring(pos));
+            //we user innerHTML which doesnt have the sinking vulnerability.
+
+            //Alternate Patching Mechanism
+            //var ESAPI = require('node-esapi');
+            //document.getElementById("myDIV").innerHTML = "<%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(decodeURIComponent(document.URL.substring(pos));))%>";
+           
+        }
+    </script>
+    <div style="margin: auto; width: 60%; height: 60%;
+    padding: 10px; text-align: center; position: absolute; top:0; bottom: 0; left: 0; right: 0;">
+        <img style="height: 100px; width: 300px; margin: auto"  src="google.png"><br>
+        <input style="margin-right: 30px;" type="text" name="input" id="input">
+        <input type="button" value="Search!" id="go" onclick="runFunction()">
+    </div> 
+    <div id="myDIV">
+    </div>  
+</body>
+</html>

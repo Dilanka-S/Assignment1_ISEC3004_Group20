@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function runFunction(){
+            var t0 = performance.now();
+            //we keep a timer to know how long it took to run the javascript code.
+            var email = document.getElementById('email').value;
+            var passWord = document.getElementById('password').value;
+            
+            const regex = new RegExp('^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$');
+            //Usually Email Validation Regex (([\-.]|[_]+)?([a-zA-Z0-9]+))* part is an Evil Regex
+
+            if (regex.test(email)){
+                var t1 = performance.now();
+                alert("This is correct! call took " + (t1 - t0) + " milliseconds");
+            } else {
+                var t1 = performance.now();
+                alert("This is incorrect! call took " + (t1 - t0) + " milliseconds");
+            }
+            //We test if the email works by comparing it to the regex we just had.
+            
+        }
+        
+    </script>
+    <div style="margin: auto; width: 60%; height: 60%;
+    padding: 10px; text-align: center; position: absolute; top:0; bottom: 0; left: 0; right: 0;">
+        Try entering the value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!
+        <br>
+        <br>
+        Email:
+        <input type="text" name="Email" id="email">
+        <br>
+        <br>
+        Password:
+        <input type="password" name="Password" id="password">
+        <br>
+        <br>
+        <input onclick="runFunction()" type="button" value="Login!" id="btn">
+    </div>
+</body>
+</html>

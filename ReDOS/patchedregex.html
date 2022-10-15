@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function runFunction(){
+            var t0 = performance.now();
+            //we keep a timer to know how long it took to run the javascript code.
+
+            var email = document.getElementById('email').value;
+            var passWord = document.getElementById('password').value;
+            
+            alert("We have sent a verification email to you @ " + email);
+            //mailchimp(email);
+            ///We call an API of a mail server to handle sending the verification part. 
+
+            //We recommend not using regexs with evil regex parts such as (([\-.]|[_]+)?([a-zA-Z0-9]+))* if still needed.
+        }
+        
+    </script>
+    Try entering the value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!
+    <br>
+    <br>
+    Email:
+    <input type="text" name="Email" id="email">
+    <br>
+    <br>
+    Password:
+    <input type="password" name="Password" id="password">
+    <br>
+    <br>
+    <input onclick="runFunction()" type="button" value="Register!" id="btn">
+</body>
+</html>
